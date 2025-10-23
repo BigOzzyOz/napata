@@ -38,6 +38,19 @@
     align-items: center;
 }
 
+@mixin flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column-space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @mixin flex-column-start {
     display: flex;
     flex-direction: column;

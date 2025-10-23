@@ -1,6 +1,7 @@
 @use 'index' as *;
 
 header {
+    @include flex-space-between;
     position: fixed;
     top: 0;
     left: 0;
@@ -8,60 +9,84 @@ header {
     z-index: 1000;
     height: 12rem;
     background-color: $card-background;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 0 2rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+    @include respond-to('small') {
+        padding: 0 3rem;
+    }
+
+    @include respond-to('medium') {
+        padding: 0 5rem;
+    }
+
+    @include respond-to('large') {
+        padding: 0 8rem;
+    }
+
+    @include respond-to('xlarge') {
+        padding: 0 12rem;
+    }
 
     .header-logo {
         height: 10rem;
         width: auto;
     }
 
-    .nav-burger {
+    .nav-burger-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 6rem;
         height: 6rem;
-        fill: $secondary-color;
         cursor: pointer;
 
-        .bar {
-            transition: all 125ms ease-in-out;
-            transform-origin: center;
+        @include respond-to('medium') {
+            display: none;
         }
 
-        &:hover .middle {
-            transform: scale(0.4);
-        }
 
-        &__open {
-            .top {
-                transform: translate(-18%, 18%) rotate(45deg);
+        .nav-burger {
+            fill: $secondary-color;
+
+            .bar {
+                transition: all 125ms ease-in-out;
+                transform-origin: center;
             }
 
-            .middle {
-                transform: translate(-18%, 0) scaleX(0);
-            }
-
-            .bottom {
-                transform: translate(-18%, -18%) rotate(-45deg);
-            }
-
-            &:hover {
-                transform: scale(0.8);
+            &__open {
+                .top {
+                    transform: translate(-18%, 18%) rotate(45deg);
+                }
 
                 .middle {
                     transform: translate(-18%, 0) scaleX(0);
                 }
+
+                .bottom {
+                    transform: translate(-18%, -18%) rotate(-45deg);
+                }
+
+                &:hover {
+                    transform: scale(0.8);
+
+                    .middle {
+                        transform: translate(-18%, 0) scaleX(0);
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .middle {
+                transform: scale(0.4);
             }
         }
     }
 
     .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+        @include flex-column-center;
+        gap: 4rem;
         position: absolute;
         top: 12rem;
         right: 2rem;
@@ -70,23 +95,121 @@ header {
         height: 0;
         background-color: $card-background;
         border-radius: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
         overflow: hidden;
         transition: all 125ms ease-in-out;
 
+        @include respond-to('medium') {
+            position: static;
+            min-width: 60rem;
+            flex-direction: row;
+            justify-content: flex-end;
+            gap: 2rem;
+            height: 10rem;
+            background-color: transparent;
+            box-shadow: none;
+            width: auto;
+            padding: 0;
+        }
+
         &__open {
             height: auto;
-            padding: 1rem 2rem;
+            padding: 2rem;
         }
 
         a {
             font-size: 2.5rem;
+            font-weight: 700;
             color: $utility-color;
             transition: color 125ms ease-in-out;
+            @include flex-center;
+            position: relative;
 
-            &.active,
+            &::before {
+                position: absolute;
+                top: -0.5rem;
+                left: 0;
+                content: '';
+                display: block;
+                width: 0;
+                height: 0.2rem;
+                background: linear-gradient(45deg, $primary-color 0%, $secondary-color 100%);
+                transition: width 250ms ease-in-out;
+            }
+
+            &::after {
+                position: absolute;
+                bottom: -0.5rem;
+                right: 0;
+                content: '';
+                display: block;
+                width: 0;
+                height: 0.2rem;
+                background: linear-gradient(-45deg, $primary-color 0%, $secondary-color 100%);
+                transition: width 250ms ease-in-out;
+            }
+
             &:hover {
                 color: $primary-color;
+
+                &::before,
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            &.active {
+                color: $primary-color;
+                cursor: default;
+
+                &::before,
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        .contact-button {
+            @include respond-to('medium') {
+
+                position: relative;
+                background-color: $secondary-color;
+                overflow: hidden;
+                color: $utility-color;
+                padding: 1rem 2rem;
+                border: 0.25rem solid $primary-color;
+                border-radius: 2rem;
+                font-size: 2.5rem;
+                font-weight: 700;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $primary-color;
+                    mask-image: linear-gradient(45deg, transparent 0%, transparent 45%, black 50%, transparent 55%, transparent 100%);
+                    mask-size: 200% 200%;
+                    mask-position: 100% 0%;
+                    transition: mask-position 0.4s ease-in-out;
+                }
+
+                &:hover {
+
+                    &::before {
+                        mask-position: 0% 100%;
+                    }
+                }
+
+                &.active {
+                    box-shadow: inset 0 0 1rem 1rem rgba($primary-color, 0.4);
+                }
+
+                &::after {
+                    display: none;
+                }
             }
         }
     }
