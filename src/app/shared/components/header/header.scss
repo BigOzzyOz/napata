@@ -40,6 +40,8 @@ header {
         width: 6rem;
         height: 6rem;
         cursor: pointer;
+        border: unset;
+        background: transparent;
 
         @include respond-to('medium') {
             display: none;
