@@ -2,9 +2,10 @@
 
     <img class="header-logo" src="/assets/images/logo.png" alt="Logo Napata" />
 
-    <nav>
+    <nav aria-label="Hauptnavigation">
 
-        <button aria-labelledby="mainNav" class="nav-burger-container" (click)="toggleBurgerMenu()">
+        <button [attr.aria-label]="burgerMenuClosed() ? 'Menü öffnen' : 'Menü schließen'" class="nav-burger-container"
+            (click)="toggleBurgerMenu()">
             <svg class="nav-burger" [class.nav-burger__open]="!burgerMenuClosed()" viewBox="0 0 640 640">
                 <rect class="bar top" x="96" y="128" width="448" height="64" rx="32" ry="32" />
                 <rect class="bar middle" x="96" y="288" width="448" height="64" rx="32" ry="32" />
@@ -12,7 +13,7 @@
             </svg>
         </button>
 
-        <ul id="mainNav" class="nav-links" [class.nav-links__open]="!burgerMenuClosed()">
+        <ul class="nav-links" [class.nav-links__open]="!burgerMenuClosed()">
             <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
                     (click)="burgerMenuClosed.set(true)">Home</a></li>
             <li><a routerLink="/about-us" routerLinkActive="active" (click)="burgerMenuClosed.set(true)">Über uns</a>
