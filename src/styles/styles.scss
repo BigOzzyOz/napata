@@ -19,3 +19,14 @@ app-root {
     background-color: $bg-color;
     @include flex-column-center;
 }
+
+app-root {
+    >* {
+        width: 100%;
+    }
+
+    >:nth-child(3) {
+        display: block;
+        flex: 1;
+    }
+}
