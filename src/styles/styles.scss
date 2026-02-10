@@ -12,9 +12,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
-body {
+body,
+app-root {
     height: 100dvh;
     width: 100dvw;
     background-color: $bg-color;
-
+    @include flex-column-center;
 }
