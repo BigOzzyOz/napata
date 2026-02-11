@@ -29,6 +29,10 @@ footer {
                     text-decoration: underline;
                     cursor: pointer;
                 }
+
+                &.active {
+                    text-decoration: underline;
+                }
             }
 
             &:not(:first-child) {
