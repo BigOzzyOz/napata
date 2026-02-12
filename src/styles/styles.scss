@@ -12,15 +12,20 @@
     -webkit-font-smoothing: antialiased;
 }
 
-body,
-app-root {
+body {
     height: 100dvh;
     width: 100dvw;
     background-color: $bg-color;
     @include flex-column-center;
 }
 
+
 app-root {
+    height: 100%;
+    width: 100%;
+    @include flex-column-start;
+    position: relative;
+
     >* {
         width: 100%;
     }

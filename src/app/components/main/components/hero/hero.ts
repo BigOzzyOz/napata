@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Parallax } from '../../../../shared/services/parallax';
 
 @Component({
   selector: 'app-hero',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './hero.scss',
 })
 export class Hero {
+  parallax = inject(Parallax);
 
 }

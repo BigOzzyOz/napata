@@ -6,4 +6,11 @@ main {
     @include flex-column-center;
     background: transparent url(/assets/images/lagerfeuer.webp) no-repeat center center;
     background-size: cover;
+
+    >app-hero {
+        padding-top: 12rem;
+        display: block;
+        width: 100%;
+
+    }
 }
