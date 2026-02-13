@@ -6,14 +6,20 @@ footer {
     background-color: $bg-color;
     @include flex-column-center;
     padding: 2rem;
-    gap: 1.5rem;
+    gap: 1rem;
+    line-height: normal;
 
     .footer-logo {
-        max-width: 200px;
+        max-height: 10rem;
+
+        @include respond-to(large) {
+            max-height: unset;
+            max-width: 200px;
+        }
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 2rem;
         color: #000;
     }
 
@@ -22,14 +28,6 @@ footer {
 
         li {
             a {
-                font-size: 1.5rem;
-                color: $secondary-color;
-
-                &:hover {
-                    text-decoration: underline;
-                    cursor: pointer;
-                }
-
                 &.active {
                     text-decoration: underline;
                 }
@@ -38,10 +36,6 @@ footer {
             &:not(:first-child) {
                 list-style: disc;
                 margin-left: 2.5rem;
-
-                a {
-                    margin-left: 1.5rem;
-                }
             }
 
         }
