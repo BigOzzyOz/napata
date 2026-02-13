@@ -20,8 +20,6 @@ export class Parallax {
     const offsetValue = this.appRoot ? this.appRoot.scrollTop * 0.5 : 0;
     this.zone.run(() => {
       this.offset.set(offsetValue);
-      console.log('Scroll offset:', offsetValue);
-      console.log('Current offset signal value:', this.offset());
     });
   };
 
