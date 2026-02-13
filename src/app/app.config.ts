@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, TitleStrategy } from '@angular/router';
+import { provideRouter, TitleStrategy, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { TemplatePageTitleStrategy } from './core/strategies/template-title-strategy';
@@ -7,7 +7,13 @@ import { TemplatePageTitleStrategy } from './core/strategies/template-title-stra
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled'
+      })
+    ),
     { provide: TitleStrategy, useClass: TemplatePageTitleStrategy },
   ]
 };
