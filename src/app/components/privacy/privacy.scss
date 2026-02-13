@@ -1,0 +1,7 @@
+@use 'index' as *;
+
+#privacy-policy {
+    @include flex-column-start;
+    align-items: flex-start;
+    gap: 2rem;
+}
