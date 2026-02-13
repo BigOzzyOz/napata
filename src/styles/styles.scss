@@ -10,6 +10,30 @@
     font-size: 8px;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    scrollbar-width: thin;
+    scrollbar-color: $secondary-color $bg-color;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $bg-color;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $primary-color 0%, $secondary-color 100%);
+    border-radius: 10px;
+    border: 2px solid $bg-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            color-mix(in srgb, $primary-color, white 10%) 0%,
+            color-mix(in srgb, $secondary-color, black 10%) 100%);
 }
 
 body {
@@ -17,6 +41,103 @@ body {
     width: 100dvw;
     background-color: $bg-color;
     @include flex-column-center;
+    font-size: 2rem;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: -0.15rem;
+    color: $primary-color;
+
+    @include respond-to(large) {
+        font-size: 5.5rem;
+        letter-spacing: normal;
+    }
+}
+
+h2 {
+    font-size: 3.25rem;
+    letter-spacing: -0.15rem;
+    color: $primary-color;
+
+    @include respond-to(large) {
+        font-size: 4.5rem;
+        letter-spacing: normal;
+    }
+}
+
+h3 {
+    font-size: 2.75rem;
+    letter-spacing: -0.15rem;
+    color: $primary-color;
+
+    @include respond-to(large) {
+        font-size: 3.5rem;
+        letter-spacing: normal;
+    }
+}
+
+h4 {
+    font-size: 2.25rem;
+    color: $primary-color;
+
+    @include respond-to(large) {
+        font-size: 2.75rem;
+    }
+}
+
+h5 {
+    font-size: 2rem;
+    color: $primary-color;
+
+    @include respond-to(large) {
+        font-size: 2.25rem;
+    }
+}
+
+h6 {
+    font-size: 1.75rem;
+    color: $primary-color;
+
+    @include respond-to(large) {
+        font-size: 2rem;
+    }
+}
+
+p,
+li,
+span,
+strong {
+    font-size: 2rem;
+    color: $text-color;
+
+    @include respond-to(large) {
+        font-size: 2.25rem;
+    }
+}
+
+a {
+    font-size: 2rem;
+    color: $secondary-color;
+
+    @include respond-to(large) {
+        font-size: 2.25rem;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+small {
+    font-size: 1.5rem;
+    color: $text-color;
+
+    @include respond-to(large) {
+        font-size: 1.75rem;
+    }
 }
 
 
@@ -26,12 +147,37 @@ app-root {
     @include flex-column-start;
     position: relative;
 
-    >* {
+    .app-container {
+        margin-top: 12rem;
+        padding: 0 2rem;
+        height: 100%;
         width: 100%;
+        @include flex-column-start;
+
+        @include respond-to('small') {
+            padding: 0 3rem;
+        }
+
+        @include respond-to('medium') {
+            padding: 0 5rem;
+        }
+
+        @include respond-to('large') {
+            padding: 0 8rem;
+        }
+
+        @include respond-to('xlarge') {
+            padding: 0 12rem;
+        }
+
+        >* {
+            width: 100%;
+        }
+
+        >:nth-child(3) {
+            display: block;
+            flex: 1;
+        }
     }
 
-    >:nth-child(3) {
-        display: block;
-        flex: 1;
-    }
 }
