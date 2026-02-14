@@ -25,6 +25,9 @@ footer {
 
     .footer-list {
         @include flex-center;
+        max-width: 300px;
+        justify-content: space-between;
+        gap: 1rem;
 
         li {
             a {
@@ -32,12 +35,10 @@ footer {
                     text-decoration: underline;
                 }
             }
+        }
 
-            &:not(:first-child) {
-                list-style: disc;
-                margin-left: 2.5rem;
-            }
-
+        .seperator-circle {
+            fill: $secondary-color;
         }
     }
 }

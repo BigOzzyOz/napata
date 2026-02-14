@@ -126,6 +126,7 @@ header {
             transition: color 125ms ease-in-out;
             @include flex-center;
             position: relative;
+            text-decoration: none;
 
             &::before {
                 position: absolute;
