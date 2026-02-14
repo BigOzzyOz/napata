@@ -47,40 +47,34 @@ body {
 
 h1 {
     font-size: 3.5rem;
-    letter-spacing: -0.15rem;
-    color: $primary-color;
+    letter-spacing: -0.05rem;
 
     @include respond-to(large) {
         font-size: 5.5rem;
-        letter-spacing: normal;
     }
 }
 
 h2 {
     font-size: 3.25rem;
-    letter-spacing: -0.15rem;
-    color: $primary-color;
+    letter-spacing: -0.05rem;
 
     @include respond-to(large) {
         font-size: 4.5rem;
-        letter-spacing: normal;
     }
 }
 
 h3 {
     font-size: 2.75rem;
-    letter-spacing: -0.15rem;
-    color: $primary-color;
+    letter-spacing: 0.05rem;
 
     @include respond-to(large) {
         font-size: 3.5rem;
-        letter-spacing: normal;
     }
 }
 
 h4 {
     font-size: 2.25rem;
-    color: $primary-color;
+    letter-spacing: 0.05rem;
 
     @include respond-to(large) {
         font-size: 2.75rem;
@@ -89,7 +83,6 @@ h4 {
 
 h5 {
     font-size: 2rem;
-    color: $primary-color;
 
     @include respond-to(large) {
         font-size: 2.25rem;
@@ -98,7 +91,6 @@ h5 {
 
 h6 {
     font-size: 1.75rem;
-    color: $primary-color;
 
     @include respond-to(large) {
         font-size: 2rem;
@@ -149,25 +141,26 @@ app-root {
 
     .app-container {
         margin-top: 12rem;
-        padding: 0 2rem;
+        padding: 2rem 2rem 0 2rem;
         height: 100%;
         width: 100%;
+        overflow: hidden auto;
         @include flex-column-start;
 
         @include respond-to('small') {
-            padding: 0 3rem;
+            padding: 3rem 3rem 0 3rem;
         }
 
         @include respond-to('medium') {
-            padding: 0 5rem;
+            padding: 5rem 5rem 0 5rem;
         }
 
         @include respond-to('large') {
-            padding: 0 8rem;
+            padding: 8rem 8rem 0 8rem;
         }
 
         @include respond-to('xlarge') {
-            padding: 0 12rem;
+            padding: 12rem 12rem 0 12rem;
         }
 
         >* {
