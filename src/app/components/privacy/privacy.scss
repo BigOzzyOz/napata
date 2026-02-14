@@ -4,4 +4,70 @@
     @include flex-column-start;
     align-items: flex-start;
     gap: 2rem;
+    line-height: 1.2;
+}
+
+section {
+    @include flex-column-start;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+}
+
+#section-general {
+
+    .controller-info {
+        @include flex-column-start;
+        align-items: flex-start;
+        gap: 2rem;
+
+        .controller-details {
+            @include flex-column-start;
+            align-items: flex-start;
+            gap: 1rem;
+            font-style: normal;
+        }
+    }
+
+    .legal-rights {
+        @include flex-column-start;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+}
+
+#section-data-collection {
+    .hosting-info {
+        @include flex-column-start;
+        align-items: flex-start;
+        gap: 2rem;
+
+        .hosting-details {
+            @include flex-column-start;
+            align-items: flex-start;
+            gap: 1rem;
+            font-style: normal;
+        }
+    }
+
+    .cookies-info {
+        @include flex-column-start;
+        align-items: flex-start;
+        gap: 2rem;
+
+        .cookies-section {
+            @include flex-column-start;
+            align-items: flex-start;
+            gap: 1rem;
+            font-style: normal;
+        }
+    }
+}
+
+#section-plugins {
+    .external-service {
+        @include flex-column-start;
+        align-items: flex-start;
+        gap: 2rem;
+    }
 }
