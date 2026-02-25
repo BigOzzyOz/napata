@@ -78,6 +78,26 @@
     left: 0;
 }
 
+@mixin responsive-padding {
+    padding: 2rem 2rem 0 2rem;
+
+    @include respond-to('small') {
+        padding: 3rem 3rem 0 3rem;
+    }
+
+    @include respond-to('medium') {
+        padding: 5rem 5rem 0 5rem;
+    }
+
+    @include respond-to('large') {
+        padding: 8rem 8rem 0 8rem;
+    }
+
+    @include respond-to('xlarge') {
+        padding: 12rem 12rem 0 12rem;
+    }
+}
+
 @mixin main-button {
     position: relative;
     background-color: $secondary-color;

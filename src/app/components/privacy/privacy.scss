@@ -2,6 +2,7 @@
 
 #privacy-policy {
     @include flex-column-start;
+    @include responsive-padding;
     align-items: flex-start;
     gap: 2rem;
     line-height: 1.2;

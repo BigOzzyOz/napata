@@ -2,6 +2,7 @@
 
 #legal-notice {
     @include flex-column-start;
+    @include responsive-padding;
     align-items: flex-start;
     gap: 2rem;
 
