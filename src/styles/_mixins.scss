@@ -78,23 +78,48 @@
     left: 0;
 }
 
-@mixin responsive-padding {
-    padding: 2rem 2rem 0 2rem;
+@mixin responsive-padding-sides {
+    padding-left: 2rem;
+    padding-right: 2rem;
 
     @include respond-to('small') {
-        padding: 3rem 3rem 0 3rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 
     @include respond-to('medium') {
-        padding: 5rem 5rem 0 5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
     }
 
     @include respond-to('large') {
-        padding: 8rem 8rem 0 8rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
     }
 
     @include respond-to('xlarge') {
-        padding: 12rem 12rem 0 12rem;
+        padding-left: 12rem;
+        padding-right: 12rem;
+    }
+}
+
+@mixin responsive-padding-top {
+    padding-top: 2rem;
+
+    @include respond-to('small') {
+        padding-top: 3rem;
+    }
+
+    @include respond-to('medium') {
+        padding-top: 5rem;
+    }
+
+    @include respond-to('large') {
+        padding-top: 8rem;
+    }
+
+    @include respond-to('xlarge') {
+        padding-top: 12rem;
     }
 }
 
