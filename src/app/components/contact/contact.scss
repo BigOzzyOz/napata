@@ -3,7 +3,6 @@
 #contact {
     @include flex-column-start;
     align-items: flex-start;
-    gap: 2rem;
     background: transparent url(/assets/images/contact-hero-bg.jpeg) no-repeat center center;
     background-size: cover;
 }

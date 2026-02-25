@@ -1,0 +1,54 @@
+@use "index" as *;
+
+.contact-form-container {
+    @include flex-column-center;
+    @include responsive-padding-sides;
+    @include responsive-padding-top;
+    gap: 4rem;
+    background: $bg-color;
+
+
+    .contact-form {
+        @include flex-column-space-between;
+        gap: 3rem;
+
+        .form-group {
+            @include flex-column-start;
+            position: relative;
+
+            label {
+                position: absolute;
+                top: -3rem;
+                left: 0;
+                font-size: 2rem;
+                color: $text-color;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                max-width: 60rem;
+
+                padding: 1rem;
+                font-size: 2rem;
+                border: 1px solid $secondary-color;
+                border-radius: 0.5rem;
+                background: $card-background;
+                color: $utility-color;
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary-color;
+                }
+            }
+
+        }
+
+        button {
+            @include main-button;
+
+        }
+    }
+
+
+}

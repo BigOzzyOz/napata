@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './contact-form.scss',
 })
 export class ContactForm {
+  [x: string]: any;
 
 }
