@@ -5,4 +5,24 @@
     align-items: flex-start;
     background: transparent url(/assets/images/contact-hero-bg.jpeg) no-repeat center center;
     background-size: cover;
+
+    app-contact-hero,
+    app-contact-form {
+        width: 100%;
+    }
+
+
+    .contact-info {
+        @include flex-column-center;
+        width: 100%;
+
+        @include respond-to(medium) {
+            flex-direction: row;
+        }
+
+        >app-contact-options {
+            width: 100%;
+        }
+    }
+
 }
