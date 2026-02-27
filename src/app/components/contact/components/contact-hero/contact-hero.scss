@@ -2,12 +2,13 @@
 
 .contact-hero {
     @include flex-column-center;
+    @include glassmorphism-primary;
     @include responsive-padding-top;
     @include responsive-padding-sides;
     text-align: center;
-    background: $glass-color;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    width: 100%;
+    padding-bottom: 4rem;
+
 
     h1 {
         color: $primary-color;
