@@ -8,6 +8,7 @@
     text-align: center;
     width: 100%;
     padding-bottom: 4rem;
+    min-height: 33dvh;
 
 
     h1 {
@@ -15,7 +16,7 @@
     }
 
     p {
-        color: $utility-color;
+        color: $text-color;
         font-family: $secondary-font;
         margin-top: 1rem;
     }
