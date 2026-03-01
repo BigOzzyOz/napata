@@ -1,59 +1,84 @@
 # Napata
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+Ein Angular-Projekt für die Napata-Website mit modernem, modularem Aufbau und standalone Komponenten-Architektur.
 
-## Development server
+## 🚀 Entwicklungsumgebung
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Zum Starten des lokalen Entwicklungsservers:
 
 ```bash
-ng generate component component-name
+pnpm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Die Anwendung ist dann unter `http://localhost:4200/` verfügbar. Änderungen am Code werden automatisch neu geladen.
+
+## 🏗️ Projektstruktur
+
+Das Projekt verwendet eine modulare Architektur:
+
+- **`src/app/components/`** – Hauptkomponenten (main, contact, about-us, program, etc.)
+- **`src/app/shared/`** – Geteilte Services und Komponenten (Header, Footer, Parallax-Service)
+- **`src/app/core/`** – Kern-Strategien (z.B. Template Title Strategy)
+- **`src/styles/`** – Globale SCSS-Styles und Variablen
+
+### Architektur-Highlights
+
+- **Standalone Components**: Keine NgModules, moderne Angular-Architektur
+- **Signal-basierte Services**: Reactive State Management mit Angular Signals
+- **Routing**: Konfiguriert in `app.routes.ts` mit Scroll-Restoration und Anchor-Scrolling
+- **Parallax-Effekte**: Service-basierte Scroll-Offset-Tracking
+- **Custom Scroll-Container**: Siehe `app.component.ts` für scrollable Container-Logik
+
+## 🛠️ Verfügbare Befehle
 
 ```bash
-ng generate --help
+# Entwicklungsserver starten
+pnpm start
+
+# Projekt bauen
+pnpm build
+
+# Build mit Watch-Modus
+pnpm run watch
+
+# Unit-Tests ausführen
+pnpm test
 ```
 
-## Building
+## 🎨 Styling-Konventionen
 
-To build the project run:
+- SCSS-Variablen für Farben und Schriftarten in `src/styles/_variables.scss`
+- Feature-basierte SCSS-Organisation
+- Globale Styles in `src/styles/styles.scss`
+- Semantisches HTML für Accessibility
+
+## 📦 Komponenten erstellen
+
+Neue Komponenten mit Angular CLI generieren:
 
 ```bash
-ng build
+ng generate component path/to/component
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔧 Wichtige Dateien
 
-## Running unit tests
+- `src/app/app.component.ts` – Haupt-Layout und Scroll-Logik
+- `src/app/app.routes.ts` – Routing-Konfiguration
+- `src/app/app.config.ts` – Router-Konfiguration
+- `src/app/shared/services/parallax.ts` – Parallax-Service
+- `src/styles/_variables.scss` – Globale SCSS-Variablen
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🌐 Backend (PHP Mail)
+
+Der PHP-Mail-Service befindet sich in `public/mail.php`. Zum Testen lokal:
 
 ```bash
-ng test
+cd public
+php -S localhost:8000
 ```
 
-## Running end-to-end tests
+## 📝 Weitere Ressourcen
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular CLI Dokumentation](https://angular.dev/tools/cli)
+- [Angular Signals](https://angular.dev/guide/signals)
+- [Standalone Components](https://angular.dev/guide/components/importing)
