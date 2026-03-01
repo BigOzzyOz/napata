@@ -6,33 +6,34 @@
     </div>
     <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="sure-name">Dein Name</label>
+            <label for="sure-name">Dein Name<span class="required">*</span></label>
             <input type="text" id="sure-name" name="sure-name" formControlName="name">
         </div>
         <div class="form-group">
-            <label for="first-name">Dein Vorname</label>
+            <label for="first-name">Dein Vorname<span class="required">*</span></label>
             <input type="text" id="first-name" name="first-name" formControlName="firstName">
         </div>
         <div class="form-group">
-            <label for="email">Deine E-Mail-Adresse</label>
+            <label for="email">Deine E-Mail-Adresse<span class="required">*</span></label>
             <input type="email" id="email" name="email" formControlName="email">
         </div>
         <div class="form-group">
-            <label for="subject">Betreff</label>
+            <label for="subject">Betreff<span class="required">*</span></label>
             <input type="text" id="subject" name="subject" formControlName="subject">
         </div>
         <div class="form-group">
-            <label for="message">Deine Nachricht</label>
+            <label for="message">Deine Nachricht<span class="required">*</span></label>
             <textarea id="message" name="message" rows="5" formControlName="message"></textarea>
         </div>
         <div class="form-group privacy-accepted">
             <input type="checkbox" id="privacyAccepted" name="privacyAccepted" formControlName="privacyAccepted">
-            <label for="privacyAccepted"><a routerLink="/privacy" routerLinkActive="active">Datenschutz</a>
-                akzeptieren</label>
+            <label for="privacyAccepted">Ich akzeptiere die <a routerLink="/privacy" routerLinkActive="active"
+                    (click)="$event.stopPropagation()">Datenschutzbestimmungen</a>
+            </label>
         </div>
         <p class="form-error">
             @switch (true) {
-                @case(name.invalid && name.touched) {
+                @case(name.invalid && name.dirty) {
                     @if (name.hasError('required')) {
                         Bitte gib deinen Namen an.
                     }
@@ -40,7 +41,7 @@
                         Dein Name muss mindestens 3 Zeichen lang sein.
                     }
                 }
-                @case(firstName.invalid && firstName.touched) {
+                @case(firstName.invalid && firstName.dirty) {
                     @if (firstName.hasError('required')) {
                         Bitte gib deinen Vornamen an.
                     }
@@ -48,7 +49,7 @@
                         Dein Vorname muss mindestens 3 Zeichen lang sein.
                     }
                 }
-                @case(email.invalid && email.touched) {
+                @case(email.invalid && email.dirty) {
                     @if (email.hasError('required')) {
                         Bitte gib deine E-Mail-Adresse an.
                     }
@@ -56,7 +57,7 @@
                         Bitte gib eine gültige E-Mail-Adresse ein.
                     }
                 }
-                @case(subject.invalid && subject.touched) {
+                @case(subject.invalid && subject.dirty) {
                     @if (subject.hasError('required')) {
                         Bitte gib einen Betreff an.
                     }
@@ -64,7 +65,7 @@
                         Der Betreff muss mindestens 2 Zeichen lang sein.
                     }
                 }
-                @case(message.invalid && message.touched) {
+                @case(message.invalid && message.dirty) {
                     @if (message.hasError('required')) {
                         Bitte gib eine Nachricht ein.
                     }
@@ -72,13 +73,16 @@
                         Deine Nachricht muss mindestens 10 Zeichen lang sein.
                     }
                 }
-                @case(privacyAccepted.invalid && contactForm.touched) {
+                @case(privacyAccepted.invalid && contactForm.dirty && isRestValid) {
                     @if (privacyAccepted.hasError('required')) {
                         Bitte akzeptiere die Datenschutzbestimmungen.
                     }
                 }
-                @default {}
+                @case(contactForm.invalid && contactForm.touched && isSomethingDirty) {
+                    Bitte alle mit * markierten Felder ausfüllen.
+                }
             }
+
         </p>
         <button type="submit" [disabled]="contactForm.invalid">Senden</button>
     </form>
