@@ -1,5 +1,9 @@
 @use "index" as *;
 
+.contact-form-header {
+    width: 100%;
+}
+
 .contact-form-container {
     @include flex-column-center;
     @include responsive-padding-sides;
@@ -9,14 +13,26 @@
     background: $bg-color;
     position: relative;
 
+    @include respond-to(small) {
+        gap: 6rem;
+    }
+
+
 
     .contact-form {
         @include flex-column-space-between;
+        width: 100%;
         gap: 3rem;
+
+        @include respond-to(small) {
+            gap: 5rem;
+        }
 
         .form-group {
             @include flex-column-start;
             position: relative;
+            width: 100%;
+            max-width: 80dvw;
 
             label {
                 position: absolute;
@@ -24,13 +40,15 @@
                 left: 0;
                 font-size: 2rem;
                 color: $text-color;
+
+                @include respond-to(small) {
+                    top: -3.5rem;
+                }
             }
 
             input,
             textarea {
                 width: 100%;
-                max-width: 60rem;
-
                 padding: 1rem;
                 font-size: 2rem;
                 border: 1px solid $primary-color;
@@ -47,14 +65,24 @@
 
             &.privacy-accepted {
                 position: relative;
+                top: -2rem;
                 flex-direction: row;
-                align-items: flex-start;
+                align-items: center;
                 gap: 1rem;
+
+                @include respond-to(small) {
+                    gap: 2rem;
+                    top: -3rem;
+                }
 
                 label,
                 a {
                     position: static;
                     font-size: 1.5rem;
+
+                    @include respond-to(small) {
+                        font-size: 1.75rem;
+                    }
                 }
 
                 input {
@@ -68,6 +96,11 @@
         button {
             @include main-button;
             cursor: pointer;
+
+            @include respond-to(small) {
+                top: -2rem;
+                padding: 2rem 4rem;
+            }
 
             &:disabled {
                 filter: grayscale(0.8);
@@ -83,6 +116,10 @@
             text-align: center;
             color: $error-color;
             font-size: 1.5rem;
+
+            @include respond-to(small) {
+                font-size: 1.75rem;
+            }
         }
 
         .required {

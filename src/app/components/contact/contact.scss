@@ -16,7 +16,7 @@
         @include flex-column-center;
         width: 100%;
 
-        @include respond-to(medium) {
+        @include respond-to(small) {
             flex-direction: row;
         }
 

@@ -11,13 +11,27 @@
     min-height: 33dvh;
 
 
+
+
     h1 {
         color: $primary-color;
+
+        @include respond-to(medium) {
+            font-size: 6rem;
+        }
     }
 
     p {
         color: $text-color;
         font-family: $secondary-font;
         margin-top: 1rem;
+
+        @include respond-to(small) {
+            max-width: 60dvw;
+        }
+
+        @include respond-to(medium) {
+            font-size: 2.5rem;
+        }
     }
 }
