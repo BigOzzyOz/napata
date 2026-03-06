@@ -7,31 +7,44 @@
     <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="sure-name">Dein Name<span class="required">*</span></label>
-            <input type="text" id="sure-name" name="sure-name" formControlName="name">
+            <input type="text" id="sure-name" name="sure-name" formControlName="name" aria-required="true"
+                [attr.aria-invalid]="name.invalid && name.dirty"
+                [attr.aria-describedby]="name.invalid && name.dirty ? 'form-error' : null">
         </div>
         <div class="form-group">
             <label for="first-name">Dein Vorname<span class="required">*</span></label>
-            <input type="text" id="first-name" name="first-name" formControlName="firstName">
+            <input type="text" id="first-name" name="first-name" formControlName="firstName" aria-required="true"
+                [attr.aria-invalid]="firstName.invalid && firstName.dirty"
+                [attr.aria-describedby]="firstName.invalid && firstName.dirty ? 'form-error' : null">
         </div>
         <div class="form-group">
             <label for="email">Deine E-Mail-Adresse<span class="required">*</span></label>
-            <input type="email" id="email" name="email" formControlName="email">
+            <input type="email" id="email" name="email" formControlName="email" aria-required="true"
+                [attr.aria-invalid]="email.invalid && email.dirty"
+                [attr.aria-describedby]="email.invalid && email.dirty ? 'form-error' : null">
         </div>
         <div class="form-group">
             <label for="subject">Betreff<span class="required">*</span></label>
-            <input type="text" id="subject" name="subject" formControlName="subject">
+            <input type="text" id="subject" name="subject" formControlName="subject" aria-required="true"
+                [attr.aria-invalid]="subject.invalid && subject.dirty"
+                [attr.aria-describedby]="subject.invalid && subject.dirty ? 'form-error' : null">
         </div>
         <div class="form-group">
             <label for="message">Deine Nachricht<span class="required">*</span></label>
-            <textarea id="message" name="message" rows="5" formControlName="message"></textarea>
+            <textarea id="message" name="message" rows="5" formControlName="message" aria-required="true"
+                [attr.aria-invalid]="message.invalid && message.dirty"
+                [attr.aria-describedby]="message.invalid && message.dirty ? 'form-error' : null"></textarea>
         </div>
         <div class="form-group privacy-accepted">
-            <input type="checkbox" id="privacyAccepted" name="privacyAccepted" formControlName="privacyAccepted">
+            <input type="checkbox" id="privacyAccepted" name="privacyAccepted" formControlName="privacyAccepted"
+                aria-required="true" [attr.aria-invalid]="privacyAccepted.invalid && contactForm.dirty && isRestValid"
+                [attr.aria-describedby]="privacyAccepted.invalid && contactForm.dirty && isRestValid ? 'form-error' : null">
             <label for="privacyAccepted">Ich akzeptiere die <a routerLink="/privacy" routerLinkActive="active"
-                    (click)="$event.stopPropagation()">Datenschutzbestimmungen</a>
+                    (click)="$event.stopPropagation()"
+                    aria-label="Zur Datenschutzerklärung gehen">Datenschutzbestimmungen</a>
             </label>
         </div>
-        <p class="form-error">
+        <p id="form-error" class="form-error" role="alert" aria-live="polite">
             @switch (true) {
                 @case(name.invalid && name.dirty) {
                     @if (name.hasError('required')) {

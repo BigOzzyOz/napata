@@ -1,11 +1,15 @@
 <footer>
     <img src="/assets/images/logo.png" alt="Logo Napata" class="footer-logo" />
-    <ul class="footer-list">
-        <li><a routerLink="/imprint" routerLinkActive="active">Impressum</a></li>
-        <li><svg width="2" height="10" viewBox="0 0 2 10" xmlns="http://www.w3.org/2000/svg">
-                <rect class="separator" width="2" height="10" fill="currentColor" />
-            </svg></li>
-        <li><a routerLink="/privacy" routerLinkActive="active">Datenschutz</a></li>
-    </ul>
+    <nav aria-label="Fußnavigation">
+        <ul class="footer-list">
+            <li><a routerLink="/imprint" routerLinkActive="active" aria-label="Springen zu Impressum">Impressum</a></li>
+            <li><svg width="2" height="10" viewBox="0 0 2 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                    focusable="false">
+                    <rect class="separator" width="2" height="10" fill="currentColor" />
+                </svg></li>
+            <li><a routerLink="/privacy" routerLinkActive="active" aria-label="Springen zu Datenschutz">Datenschutz</a>
+            </li>
+        </ul>
+    </nav>
     <small>&copy; 2025 Napata. Alle Rechte vorbehalten.</small>
 </footer>
