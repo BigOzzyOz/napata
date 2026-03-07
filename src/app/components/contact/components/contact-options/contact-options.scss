@@ -37,7 +37,8 @@
         display: flex;
         flex-direction: column;
 
-        a, p {
+        a,
+        p {
             color: $primary-color;
             font-size: 2.5rem;
             font-weight: bold;
@@ -47,17 +48,17 @@
     }
 
     &.email {
-        background: transparent url(/assets/images/mail_bg.webp) no-repeat center center;
+        background: transparent url(/assets/images/mail-bg.webp) no-repeat center center;
         background-size: cover;
     }
 
     &.phone {
-        background: transparent url(/assets/images/phone_bg.webp) no-repeat center center;
+        background: transparent url(/assets/images/phone-bg.webp) no-repeat center center;
         background-size: cover;
     }
 
     &.region {
-        background: transparent url(/assets/images/region_bg.webp) no-repeat center center;
+        background: transparent url(/assets/images/region-bg.webp) no-repeat center center;
         background-size: cover;
     }
 }
